@@ -1,0 +1,30 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class MoveFood : MonoBehaviour {
+
+    public float foodSpeed;
+
+    SpawnFood sFood;
+
+	// Use this for initialization
+	void Start () 
+    {
+        sFood = GameObject.Find("Game Manager").GetComponent<SpawnFood>();
+	
+	}
+	
+	// Update is called once per frame
+	void Update () 
+    {
+        if (sFood.isLeft == true)
+        {
+            transform.Translate(Vector2.right * foodSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(-Vector2.right * foodSpeed * Time.deltaTime);
+        }
+	
+	}
+}
