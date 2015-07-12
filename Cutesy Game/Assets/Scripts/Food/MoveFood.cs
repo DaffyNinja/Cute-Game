@@ -27,4 +27,14 @@ public class MoveFood : MonoBehaviour {
         }
 	
 	}
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Destroy Wall")
+        {
+            Destroy(this.gameObject);
+
+           // print("Destroyed");
+        }
+    }
 }
