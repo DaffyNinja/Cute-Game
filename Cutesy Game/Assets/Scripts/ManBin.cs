@@ -22,7 +22,7 @@ public class ManBin : MonoBehaviour {
     {
         if (col.gameObject.tag == "Food")
         {
-            print("Food Hit");
+            //print("Food Hit");
 
             scoreSys.score++;
 

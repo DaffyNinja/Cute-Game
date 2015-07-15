@@ -6,12 +6,22 @@ public class ScoreSystem : MonoBehaviour {
 
     public int score;
 
+    public int scoreToBeat;
+
+
     public Text scoreText;
+
+
+    public bool hasWon;
+
+
+    GameTimer gTimer;
 
 
 	// Use this for initialization
 	void Start () 
     {
+        gTimer = GameObject.Find("Game Manager").GetComponent<GameTimer>();
 	
 	}
 	
@@ -20,10 +30,30 @@ public class ScoreSystem : MonoBehaviour {
     {
         scoreText.text = score.ToString();
 
-        if (score >= 2)
+        if (gTimer.gameGoing == false)
         {
-           // print("Win");
+            if (score >= scoreToBeat)
+            {
+                print("Win");
+
+                hasWon = true;
+            }
+            else 
+            {
+                print("Lose");
+
+                hasWon = false;
+
+                score = 0;
+
+                //gTimer.gameTime = 0;
+
+                //gTimer.gameGoing = true;
+            }
         }
+
+   
+        
 	
 	}
 }
